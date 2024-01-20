@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.db import models
 
 
@@ -104,3 +105,5 @@ class NewsImage(BaseModel):
     news_img = models.ForeignKey(News, on_delete=models.CASCADE,
                                  related_name='news_img')
     image = models.ImageField(blank=True, null=True)
+=======
+>>>>>>> origin/main
