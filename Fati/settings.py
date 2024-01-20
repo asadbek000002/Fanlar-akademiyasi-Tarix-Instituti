@@ -37,6 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #APP
+    'aboutInstitut',
+    'connection',
+    'council',
+    'department',
+    'doctorant',
+    'internetionalContact',
+    'library',
+    'meteng',
+
+    #TASHQI KUTUBXONALAR
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
