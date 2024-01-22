@@ -34,12 +34,7 @@ class Department(BaseModel):
     class Meta:
         verbose_name = 'department'
         verbose_name_plural = 'departments'
-<<<<<<< HEAD
-        abstract = False
-        ordering = ('id',)
-=======
 
->>>>>>> e8a3879 (To'g'rlandi)
 
 
 class Employee(BaseModel):
@@ -68,12 +63,6 @@ class Works(BaseModel):
     class Meta:
         verbose_name = 'work'
         verbose_name_plural = 'works'
-<<<<<<< HEAD
-        abstract = False
-        ordering = ('id',)
-=======
-      
->>>>>>> e8a3879 (To'g'rlandi)
 
     def __str__(self):
         return self.works
@@ -87,12 +76,7 @@ class Research(BaseModel):
     class Meta:
         verbose_name = 'research'
         verbose_name_plural = 'researches'
-<<<<<<< HEAD
-        abstract = False
-        ordering = ('id',)
 
-=======
-     
->>>>>>> e8a3879 (To'g'rlandi)
+        
     def __str__(self):
         return self.context
