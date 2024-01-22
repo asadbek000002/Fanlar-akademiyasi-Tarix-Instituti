@@ -34,4 +34,3 @@ class WorkAdmin(admin.ModelAdmin):
     list_display = ['works', 'created_time', 'updated_time']
 
 
-admin.site.register(Works)
