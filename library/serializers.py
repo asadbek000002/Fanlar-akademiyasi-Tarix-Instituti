@@ -1,4 +1,3 @@
-from api.pagination import ResultsSetPagination
 from .models import Archive, AutoReferat, Category, Editorial, EditorialMany, ElectronBook, Requirement, Source
 from rest_framework import serializers
 
@@ -36,7 +35,6 @@ class ElektronBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = ElectronBook
         fields = '__all__'
-        pagination_class = ResultsSetPagination
 
 
 
@@ -44,7 +42,6 @@ class AutoReferatSerializer(serializers.ModelSerializer):
     class Meta:
         model = AutoReferat
         fields = '__all__'
-        pagination_class = ResultsSetPagination
 
 
     
@@ -52,7 +49,6 @@ class SourceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Source
         fields = '__all__'
-        pagination_class = ResultsSetPagination
 
 
 

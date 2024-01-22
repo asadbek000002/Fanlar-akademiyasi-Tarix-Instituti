@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
+from api.pagination import ResultsSetPagination
 from library.models import Archive, AutoReferat, Category, Editorial, EditorialMany, ElectronBook, Requirement, Source
 from library.serializers import ArchiveSerializer, AutoReferatSerializer, CategorySerializer, EditorialManySerializer, EditorialSerializer, ElektronBookSerializer, RequirementSerializer, SourceSerializer
 
@@ -32,14 +33,19 @@ class EditorialManyListCreateView(generics.ListAPIView):
 class ElektronBookListCreateView(generics.ListAPIView):
     queryset = ElectronBook.objects.all()
     serializer_class = ElektronBookSerializer
+    pagination_class = ResultsSetPagination
 
 
 class AutoReferatListCreateView(generics.ListAPIView):
     queryset = AutoReferat.objects.all()
     serializer_class = AutoReferatSerializer
+    pagination_class = ResultsSetPagination
 
 
 class SourceListCreateView(generics.ListAPIView):
     queryset = Source.objects.all()
     serializer_class = SourceSerializer
+    pagination_class = ResultsSetPagination
+
+    
 
