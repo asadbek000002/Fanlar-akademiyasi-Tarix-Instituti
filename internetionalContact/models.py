@@ -15,8 +15,8 @@ class PartnerOrganizations(BaseModel):
 # XALQARO LOYHALAR
 class InternationalProjects(BaseModel):
     PROJECT_STATUS = (
-        ('bajarilgan', 'Bajarilgan'),
-        ('bajarilmagan', 'Bajarilmagan'),
+        ('done', 'done'),
+        ('not_done', 'not_done'),
     )
 
     project_name = models.CharField(max_length=250)

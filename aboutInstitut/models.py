@@ -39,7 +39,7 @@ class OrganizationStructure(BaseModel):
         verbose_name_plural = 'Organization Structures'
 
     def __str__(self):
-        return self.image
+        return self.image.url
 
 
 class OrganizationStructureImage(BaseModel):
