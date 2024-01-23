@@ -1,6 +1,12 @@
 from django.contrib import admin
-from .models import InternationalResearchers, InternationalResearchersExpert, \
-                    InternationalProjects
+from .models import PartnerOrganizations, InternationalResearchers, InternationalResearchersExpert, \
+    InternationalProjects
+
+
+@admin.register(PartnerOrganizations)
+class PartnerOrganizationsAdmin(admin.ModelAdmin):
+    list_display = ['title', 'image', 'context']
+    list_filter = ['title', 'image', 'context']
 
 
 class InternationalResearchersInline(admin.TabularInline):
@@ -19,5 +25,3 @@ class InternationalResearchersAdmin(admin.ModelAdmin):
 class InternationalProjectsAdmin(admin.ModelAdmin):
     list_display = ['project_name', 'partner_organization', 'funding_organization', 'done_undone_year',
                     'project_status', 'image']
-
-

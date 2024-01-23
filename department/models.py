@@ -25,7 +25,7 @@ class Category(models.Model):
 class Department(BaseModel):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_dep')
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='images/department/depart')
+    image = models.ImageField(upload_to='images/department/depart/')
     context = models.TextField()
 
     def __str__(self):
@@ -34,8 +34,7 @@ class Department(BaseModel):
     class Meta:
         verbose_name = 'department'
         verbose_name_plural = 'departments'
-        abstract = False
-        ordering = ('id',)
+
 
 
 class Employee(BaseModel):
@@ -64,8 +63,6 @@ class Works(BaseModel):
     class Meta:
         verbose_name = 'work'
         verbose_name_plural = 'works'
-        abstract = False
-        ordering = ('id',)
 
     def __str__(self):
         return self.works
@@ -79,8 +76,7 @@ class Research(BaseModel):
     class Meta:
         verbose_name = 'research'
         verbose_name_plural = 'researches'
-        abstract = False
-        ordering = ('id',)
 
+        
     def __str__(self):
         return self.context

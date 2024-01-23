@@ -167,10 +167,10 @@ JAZZMIN_SETTINGS = {
     "site_icon": None,
 
     # Welcome text on the login screen
-    "welcome_sign": "Welcome to the library",
+    "welcome_sign": "Welcome to the Fati",
 
     # Copyright on the footer
-    "copyright": "Acme Library Ltd",
+    "copyright": "Fanlar akademiyasi tarix instituti",
 
     # List of model admins to search from the search bar, search bar omitted if excluded
     # If you want to use a single search field you dont need to use a list, you can use a simple string
