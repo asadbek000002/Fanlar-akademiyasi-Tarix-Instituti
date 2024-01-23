@@ -1,4 +1,4 @@
-from .models import Archive, AutoReferat, Category, Editorial, EditorialMany, ElectronBook, Requirement, Source
+from .models import Archive, AutoReferat, Category, Editorial, ElectronBook, Requirement, Source
 from rest_framework import serializers
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -25,10 +25,17 @@ class EditorialSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class EditorialManySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = EditorialMany
-        fields = '__all__'
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        info = instance.editorial.all()
+
+        if info:
+            data['researchers'] = [{'fullname': researcher.fullname,
+                                    'defree':researcher.degree,
+                                    'ish_joyi':researcher.ish_joyi
+                                    } for researcher in info]
+
+        return data
 
 
 class ElektronBookSerializer(serializers.ModelSerializer):

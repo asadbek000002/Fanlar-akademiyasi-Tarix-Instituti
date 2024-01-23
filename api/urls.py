@@ -2,7 +2,7 @@ from django.urls import path
 # department 
 from api.views_api.department import CategoryListCreateView, DepartmentListCreateView, EmployeeListCreateView, ResearchListCreateView, WorksListCreateView
 # library
-from api.views_api.library import CategoryLibListCreateView, SourceListCreateView, ArchiveListCreateView, RequirementListCreateView, EditorialListCreateView, EditorialManyListCreateView, AutoReferatListCreateView, ElektronBookListCreateView 
+from api.views_api.library import CategoryLibListCreateView, SourceListCreateView, ArchiveListCreateView, RequirementListCreateView, EditorialListCreateView, AutoReferatListCreateView, ElektronBookListCreateView 
 
 urlpatterns = [
 
