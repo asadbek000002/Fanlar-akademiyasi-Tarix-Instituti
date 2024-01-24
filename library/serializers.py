@@ -1,28 +1,28 @@
 from .models import Archive, AutoReferat, Category, Editorial, ElectronBook, Requirement, Source
 from rest_framework import serializers
 
-class CategorySerializer(serializers.ModelSerializer):
+class Category_libSerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = ['title']
 
 
 class ArchiveSerializer(serializers.ModelSerializer):
     class Meta:
         model = Archive
-        fields = '__all__'
+        fields = ['title', 'image', 'category_arch']
 
 
 class RequirementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Requirement
-        fields = '__all__'
+        fields = ['title', 'context', 'image', 'category_req']
 
 
 class EditorialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Editorial
-        fields = '__all__'
+        fields = ['fullname', 'degree', 'ish_joyi', 'image', 'category_edit']
 
 
     def to_representation(self, instance):
@@ -41,21 +41,21 @@ class EditorialSerializer(serializers.ModelSerializer):
 class ElektronBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = ElectronBook
-        fields = '__all__'
+        fields = ['title', 'image']
 
 
 
 class AutoReferatSerializer(serializers.ModelSerializer):
     class Meta:
         model = AutoReferat
-        fields = '__all__'
+        fields = ['title', 'image']
 
 
     
 class SourceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Source
-        fields = '__all__'
+        fields = ['title', 'image']
 
 
 

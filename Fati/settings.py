@@ -52,6 +52,8 @@ INSTALLED_APPS = [
 
     #TASHQI KUTUBXONALAR
     'rest_framework',
+    'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [

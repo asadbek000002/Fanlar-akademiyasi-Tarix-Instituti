@@ -1,12 +1,11 @@
 from django.urls import path
 # department 
-from api.views_api.department import CategoryListCreateView, DepartmentListCreateView, EmployeeListCreateView, \
-                        ResearchListCreateView, WorksListCreateView
+from api.views_api.department import CategoryListView, DepartmentListView, EmployeeListView, \
+                        ResearchListView, WorksListView
 # library
-from api.views_api.library import CategoryLibListCreateView, SourceListCreateView, ArchiveListCreateView, RequirementListCreateView, EditorialListCreateView, AutoReferatListCreateView, ElektronBookListCreateView 
-from api.views_api.library import CategoryLibListCreateView, SourceListCreateView, ArchiveListCreateView, \
-                        RequirementListCreateView, EditorialListCreateView, EditorialManyListCreateView, \
-                        AutoReferatListCreateView, ElektronBookListCreateView
+from api.views_api.library import CategoryLibListView, SourceListView, ArchiveListView, \
+                        RequirementListView, EditorialListView,\
+                        AutoReferatListView, ElektronBookListView
 # aboutinstitut
 from api.views_api.aboutinstitut_view import LeadershipAPIView, OrganizationStructureAPIView, \
                         ArchitecturalLegalDocumentsAPIView, HistoryInstituteAPIView, NewsAPIView
@@ -17,21 +16,21 @@ from api.views_api.internetionalContact_view import PartnerOrganizationsAPIView,
 urlpatterns = [
 
     # department
-    path('category_dep/',CategoryListCreateView.as_view()),
-    path('department/', DepartmentListCreateView.as_view()),
-    path('employee/', EmployeeListCreateView.as_view()),
-    path('research/', ResearchListCreateView.as_view()),
-    path('work/', WorksListCreateView.as_view()),
+    path('category_dep/',CategoryListView.as_view()),
+    path('department/', DepartmentListView.as_view()),
+    path('employee/', EmployeeListView.as_view()),
+    path('research/', ResearchListView.as_view()),
+    path('work/', WorksListView.as_view()),
 
 
     # library
-    path('category_lib/',CategoryLibListCreateView.as_view()),
-    path('archive/', ArchiveListCreateView.as_view()),
-    path('requirements/', RequirementListCreateView.as_view()),
-    path('edorial/', EditorialListCreateView.as_view()),
-    path('elektron/', ElektronBookListCreateView.as_view()),
-    path('autoref/', AutoReferatListCreateView.as_view()),
-    path('source/', SourceListCreateView.as_view()),
+    path('category_lib/',CategoryLibListView.as_view()),
+    path('archive/', ArchiveListView.as_view()),
+    path('requirements/', RequirementListView.as_view()),
+    path('edorial/', EditorialListView.as_view()),
+    path('elektron/', ElektronBookListView.as_view()),
+    path('autoref/', AutoReferatListView.as_view()),
+    path('source/', SourceListView.as_view()),
     
     # leadership
     path('leadership/', LeadershipAPIView.as_view()),

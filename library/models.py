@@ -14,8 +14,8 @@ class Category(BaseModel):
     title = models.CharField(max_length=255)
 
     class Meta:
-        verbose_name = 'Category'
-        verbose_name_plural = 'Categories'
+        verbose_name = 'Category_lib'
+        verbose_name_plural = 'Categories_lib'
 
     def __str__(self):
         return self.title
