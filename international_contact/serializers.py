@@ -5,19 +5,20 @@ from .models import PartnerOrganizations, InternationalProjects, InternationalRe
 class PartnerOrganizationsSerializer(serializers.ModelSerializer):
     class Meta:
         model = PartnerOrganizations
-        fields = '__all__'
+        fields = ['id', 'title', 'image', 'context']
 
 
 class InternationalProjectsSerializer(serializers.ModelSerializer):
     class Meta:
         model = InternationalProjects
-        fields = '__all__'
+        fields = ['id', 'project_name', 'partner_organization', 'funding_organization',
+                  'done_undone_year', 'project_status', 'image']
 
 
 class InternationalResearchersSerializer(serializers.ModelSerializer):
     class Meta:
         model = InternationalResearchers
-        fields = '__all__'
+        fields = ['id', 'title', 'image']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)

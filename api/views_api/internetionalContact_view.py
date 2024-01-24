@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView
-from internetionalContact.models import PartnerOrganizations, InternationalProjects, InternationalResearchers
-from internetionalContact.serializers import PartnerOrganizationsSerializer, InternationalProjectsSerializer, \
+from international_contact.models import PartnerOrganizations, InternationalProjects, InternationalResearchers
+from international_contact.serializers import PartnerOrganizationsSerializer, InternationalProjectsSerializer, \
                                             InternationalResearchersSerializer
 
 

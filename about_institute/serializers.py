@@ -6,7 +6,7 @@ from .models import Leadership, OrganizationStructure, ArchitecturalLegalDocumen
 class LeadershipSerializer(serializers.ModelSerializer):
     class Meta:
         model = Leadership
-        fields = '__all__'
+        fields = ['id', 'position', 'full_name', 'degree', 'phone_number', 'email', 'reception_days', 'image']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -22,7 +22,7 @@ class LeadershipSerializer(serializers.ModelSerializer):
 class OrganizationStructureSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrganizationStructure
-        fields = '__all__'
+        fields = ['id', 'image']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -38,13 +38,13 @@ class OrganizationStructureSerializer(serializers.ModelSerializer):
 class ArchitecturalLegalDocumentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ArchitecturalLegalDocuments
-        fields = '__all__'
+        fields = ['id', 'title', 'context']
 
 
 class HistoryInstituteSerializer(serializers.ModelSerializer):
     class Meta:
         model = HistoryInstitute
-        fields = '__all__'
+        fields = ['id', 'title', 'image', 'contex']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -60,7 +60,7 @@ class HistoryInstituteSerializer(serializers.ModelSerializer):
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
-        fields = '__all__'
+        fields = ['id', 'title', 'image', 'context']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)

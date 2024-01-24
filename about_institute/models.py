@@ -1,4 +1,5 @@
 from django.db import models
+from djrichtextfield.models import RichTextField
 
 
 class BaseModel(models.Model):
@@ -14,7 +15,7 @@ class Leadership(BaseModel):
     phone_number = models.IntegerField()
     email = models.EmailField()
     reception_days = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='images/aboutInstitut/leadership')
+    image = models.ImageField(upload_to='images/about_institute/leadership')
 
     class Meta:
         verbose_name = 'Leadership'
@@ -32,7 +33,7 @@ class LeadershipImage(BaseModel):
 
 # TASHKILIY TUZILMA
 class OrganizationStructure(BaseModel):
-    image = models.ImageField(upload_to='images/aboutInstitut/organization_structure')
+    image = models.ImageField(upload_to='images/about_institute/organization_structure')
 
     class Meta:
         verbose_name = 'Organization Structure'
@@ -51,7 +52,7 @@ class OrganizationStructureImage(BaseModel):
 # MEMORIY-HUQUQIY HUJJATLAR
 class ArchitecturalLegalDocuments(BaseModel):
     title = models.CharField(max_length=250)
-    context = models.TextField()
+    context = RichTextField()
 
     class Meta:
         verbose_name = 'Architectural Legal Document'
@@ -64,7 +65,7 @@ class ArchitecturalLegalDocuments(BaseModel):
 # INSTITUT TARIXI
 class HistoryInstitute(BaseModel):
     title = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='images/aboutInstitut/history_institute')
+    image = models.ImageField(upload_to='images/about_institute/history_institute')
     contex = models.TextField()
 
     class Meta:
@@ -84,7 +85,7 @@ class HistoryInstituteImage(BaseModel):
 # YANGILIKLAR
 class News(BaseModel):
     title = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='images/aboutInstitut/news')
+    image = models.ImageField(upload_to='images/about_institute/news')
     context = models.TextField()
 
     class Meta:

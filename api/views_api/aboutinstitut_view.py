@@ -1,7 +1,7 @@
 from rest_framework.generics import ListAPIView
-from aboutInstitut.models import Leadership, OrganizationStructure, ArchitecturalLegalDocuments, \
+from about_institute.models import Leadership, OrganizationStructure, ArchitecturalLegalDocuments, \
     HistoryInstitute, News
-from aboutInstitut.serializers import LeadershipSerializer, OrganizationStructureSerializer, \
+from about_institute.serializers import LeadershipSerializer, OrganizationStructureSerializer, \
     ArchitecturalLegalDocumentsSerializer, HistoryInstituteSerializer, NewsSerializer
 
 

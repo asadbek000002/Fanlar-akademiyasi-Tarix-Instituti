@@ -8,7 +8,7 @@ class BaseModel(models.Model):
 
 class PartnerOrganizations(BaseModel):
     title = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='images/internetionalContact/partner_organizations')
+    image = models.ImageField(upload_to='images/international_contact/partner_organizations')
     context = models.TextField()
 
 
@@ -24,7 +24,7 @@ class InternationalProjects(BaseModel):
     funding_organization = models.CharField(max_length=250)
     done_undone_year = models.IntegerField()
     project_status = models.CharField(max_length=20, choices=PROJECT_STATUS, default='bajarilmagan')
-    image = models.ImageField(upload_to='images/internetionalContact/international_projects')
+    image = models.ImageField(upload_to='images/international_contact/international_projects')
 
     class Meta:
         verbose_name = 'International Project'
@@ -36,7 +36,7 @@ class InternationalProjects(BaseModel):
 
 class InternationalResearchers(BaseModel):
     title = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='images/internetionalContact/international_researchers')
+    image = models.ImageField(upload_to='images/international_contact/international_researchers')
 
 
 class InternationalResearchersExpert(BaseModel):

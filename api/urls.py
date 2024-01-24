@@ -3,13 +3,15 @@ from django.urls import path
 from api.views_api.department import CategoryListView, DepartmentListView, EmployeeListView, \
                         ResearchListView, WorksListView
 # library
+
 from api.views_api.library import CategoryLibListView, SourceListView, ArchiveListView, \
                         RequirementListView, EditorialListView,\
                         AutoReferatListView, ElektronBookListView
+
 # aboutinstitut
 from api.views_api.aboutinstitut_view import LeadershipAPIView, OrganizationStructureAPIView, \
                         ArchitecturalLegalDocumentsAPIView, HistoryInstituteAPIView, NewsAPIView
-# internetionalContact
+# international_contact
 from api.views_api.internetionalContact_view import PartnerOrganizationsAPIView, DoneInternationalProjectsAPIView, \
                         NotDoneInternationalProjectsAPIView, InternationalResearchersAPIView
 
@@ -39,7 +41,7 @@ urlpatterns = [
     path('history-institute/', HistoryInstituteAPIView.as_view()),
     path('news/', NewsAPIView.as_view()),
 
-    # internetionalContact
+    # international_contact
     path('partner-organizations/', PartnerOrganizationsAPIView.as_view()),
     path('done-international-projects/', DoneInternationalProjectsAPIView.as_view()),
     path('not-done-international-projects/', NotDoneInternationalProjectsAPIView.as_view()),

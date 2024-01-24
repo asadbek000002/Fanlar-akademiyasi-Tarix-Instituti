@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AboutinstitutConfig(AppConfig):
+class InternetionalcontactConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'aboutInstitut'
+    name = 'international_contact'

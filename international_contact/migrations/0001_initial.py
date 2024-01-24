@@ -23,38 +23,38 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='InternationalProjects',
             fields=[
-                ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='internetionalContact.basemodel')),
+                ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='international_contact.basemodel')),
                 ('project_name', models.CharField(max_length=250)),
                 ('partner_organization', models.CharField(max_length=250)),
                 ('funding_organization', models.CharField(max_length=250)),
                 ('done_undone_year', models.IntegerField()),
                 ('project_status', models.CharField(choices=[('bajarilgan', 'Bajarilgan'), ('bajarilmagan', 'Bajarilmagan')], default='bajarilmagan', max_length=20)),
-                ('image', models.ImageField(upload_to='images/internetionalContact/international_projects')),
+                ('image', models.ImageField(upload_to='images/international_contact/international_projects')),
             ],
             options={
                 'verbose_name': 'International Project',
                 'verbose_name_plural': 'International Projects',
             },
-            bases=('internetionalContact.basemodel',),
+            bases=('international_contact.basemodel',),
         ),
         migrations.CreateModel(
             name='InternationalResearchers',
             fields=[
-                ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='internetionalContact.basemodel')),
+                ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='international_contact.basemodel')),
                 ('title', models.CharField(max_length=250)),
-                ('image', models.ImageField(upload_to='images/internetionalContact/international_researchers')),
+                ('image', models.ImageField(upload_to='images/international_contact/international_researchers')),
             ],
-            bases=('internetionalContact.basemodel',),
+            bases=('international_contact.basemodel',),
         ),
         migrations.CreateModel(
             name='InternationalResearchersExpert',
             fields=[
-                ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='internetionalContact.basemodel')),
+                ('basemodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='international_contact.basemodel')),
                 ('full_name', models.CharField(max_length=250)),
                 ('activity_institution', models.CharField(max_length=350)),
                 ('year_of_visit', models.IntegerField()),
-                ('researchers', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='researchers', to='internetionalContact.internationalresearchers')),
+                ('researchers', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='researchers', to='international_contact.internationalresearchers')),
             ],
-            bases=('internetionalContact.basemodel',),
+            bases=('international_contact.basemodel',),
         ),
     ]

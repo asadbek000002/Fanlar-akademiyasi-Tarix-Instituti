@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -26,8 +25,9 @@ SECRET_KEY = 'django-insecure-220aph#uql66hy#ur0j0vy4v6v_$+t3s-09e7b(!@-x6$m(x0(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+SECURE_SSL_REDIRECT = False
 
 # Application definition
 
@@ -40,20 +40,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #APP
-    'aboutInstitut',
+    # APP
+    'about_institute',
     'connection',
     'council',
     'department',
     'doctorant',
-    'internetionalContact',
+    'international_contact',
     'library',
-    'meteng',
+    'meeting',
 
-    #TASHQI KUTUBXONALAR
+    # TASHQI KUTUBXONALAR
     'rest_framework',
     'rest_framework_swagger',
     'drf_yasg',
+    'djrichtextfield'
 ]
 
 MIDDLEWARE = [
@@ -86,7 +87,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Fati.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -96,7 +96,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -116,7 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -128,7 +126,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -139,11 +136,23 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [BASE_DIR / 'static', ]
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# RICHTEXTFIELD Configure
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
+    'settings': {
+        'menubar': False,
+        'plugins': 'link image',
+        'toolbar': 'bold italic | link image | removeformat',
+        'width': 700
+    }
+}
 
 JAZZMIN_SETTINGS = {
     "site_title": "Fati Admin",
@@ -245,6 +254,5 @@ JAZZMIN_SETTINGS = {
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",
-
 
 }
