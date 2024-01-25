@@ -66,7 +66,7 @@ class ArchitecturalLegalDocuments(BaseModel):
 class HistoryInstitute(BaseModel):
     title = models.CharField(max_length=250)
     image = models.ImageField(upload_to='images/about_institute/history_institute')
-    contex = models.TextField()
+    contex = RichTextField()
 
     class Meta:
         verbose_name = 'History Institute'
@@ -86,7 +86,7 @@ class HistoryInstituteImage(BaseModel):
 class News(BaseModel):
     title = models.CharField(max_length=250)
     image = models.ImageField(upload_to='images/about_institute/news')
-    context = models.TextField()
+    context = RichTextField()
 
     class Meta:
         verbose_name = 'New'

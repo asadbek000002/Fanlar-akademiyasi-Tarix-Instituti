@@ -46,6 +46,8 @@ urlpatterns = [
     path('done-international-projects/', DoneInternationalProjectsAPIView.as_view()),
     path('not-done-international-projects/', NotDoneInternationalProjectsAPIView.as_view()),
     path('international-researchers/', InternationalResearchersAPIView.as_view()),
+
+
 ]
 
 

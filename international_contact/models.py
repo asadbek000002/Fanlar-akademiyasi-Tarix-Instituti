@@ -1,4 +1,5 @@
 from django.db import models
+from djrichtextfield.models import RichTextField
 
 
 class BaseModel(models.Model):
@@ -9,7 +10,7 @@ class BaseModel(models.Model):
 class PartnerOrganizations(BaseModel):
     title = models.CharField(max_length=250)
     image = models.ImageField(upload_to='images/international_contact/partner_organizations')
-    context = models.TextField()
+    context = RichTextField()
 
 
 # XALQARO LOYHALAR
@@ -41,7 +42,7 @@ class InternationalResearchers(BaseModel):
 
 class InternationalResearchersExpert(BaseModel):
     researchers = models.ForeignKey(InternationalResearchers, on_delete=models.CASCADE,
-                                                        related_name='researchers')
+                                    related_name='researchers')
     full_name = models.CharField(max_length=250)
     activity_institution = models.CharField(max_length=350)
     year_of_visit = models.IntegerField()
