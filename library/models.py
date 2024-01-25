@@ -37,7 +37,7 @@ class Archive(BaseModel):
 # Talablar
 class Requirement(BaseModel):
     title = models.CharField(max_length=255)
-    context = models.TextField
+    context = models.TextField()
     image = models.ImageField(upload_to='images/library/requirements/')
     category_req = models.ForeignKey(Category, on_delete= models.CASCADE, related_name = 'category_req')
 

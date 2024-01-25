@@ -6,3 +6,5 @@ pillow==10.2.0
 pytz==2023.3.post1
 sqlparse==0.4.4
 typing_extensions==4.9.0
+django-modeltranslation==0.18.11
+django-rest-swagger==2.2.0
