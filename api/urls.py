@@ -1,26 +1,28 @@
 from django.urls import path
 # department 
-from api.views_api.department import CategoryListView, DepartmentListView, EmployeeListView, \
-                        ResearchListView, WorksListView
+from api.views_api.department import  DepartmentListView, EmployeeListView, \
+                        ResearchListView, PoemsListView, DepartmentDetailView
 # library
+
 from api.views_api.library import CategoryLibListView, SourceListView, ArchiveListView, \
                         RequirementListView, EditorialListView,\
                         AutoReferatListView, ElektronBookListView
+
 # aboutinstitut
 from api.views_api.aboutinstitut_view import LeadershipAPIView, OrganizationStructureAPIView, \
                         ArchitecturalLegalDocumentsAPIView, HistoryInstituteAPIView, NewsAPIView
-# internetionalContact
+# international_contact
 from api.views_api.internetionalContact_view import PartnerOrganizationsAPIView, DoneInternationalProjectsAPIView, \
                         NotDoneInternationalProjectsAPIView, InternationalResearchersAPIView
-
+# 9246692
 urlpatterns = [
 
     # department
-    path('category_dep/',CategoryListView.as_view()),
     path('department/', DepartmentListView.as_view()),
-    path('employee/', EmployeeListView.as_view()),
-    path('research/', ResearchListView.as_view()),
-    path('work/', WorksListView.as_view()),
+    path('dep/<id>/', DepartmentDetailView.as_view()),
+    path('dep/<id>/employee/', EmployeeListView.as_view()),
+    path('dep/<id>/research/', ResearchListView.as_view()),
+    path('poems/', PoemsListView.as_view()),
 
 
     # library
@@ -39,7 +41,7 @@ urlpatterns = [
     path('history-institute/', HistoryInstituteAPIView.as_view()),
     path('news/', NewsAPIView.as_view()),
 
-    # internetionalContact
+    # international_contact
     path('partner-organizations/', PartnerOrganizationsAPIView.as_view()),
     path('done-international-projects/', DoneInternationalProjectsAPIView.as_view()),
     path('not-done-international-projects/', NotDoneInternationalProjectsAPIView.as_view()),

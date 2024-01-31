@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'drf_yasg',
     'modeltranslation',
+    'ckeditor',
+
 ]
 
 MIDDLEWARE = [
@@ -157,6 +159,20 @@ STATICFILES_DIRS = [BASE_DIR / 'static', ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' 
+
+CKEDITOR_CONFIGS = {
+    'default':
+        {
+            'toolbar': 'full',
+            'width': 'auto',
+            'extraPlugins': ','.join([
+                'codesnippet',
+            ]),
+        },
+}
 JAZZMIN_SETTINGS = {
     "site_title": "Fati Admin",
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
