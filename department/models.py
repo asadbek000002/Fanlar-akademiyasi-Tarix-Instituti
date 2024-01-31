@@ -36,7 +36,6 @@ class Department(BaseModel):
         verbose_name_plural = 'departments'
 
 
-
 class Employee(BaseModel):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_emp')
     departmentemp = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='department_emp')
@@ -77,6 +76,5 @@ class Research(BaseModel):
         verbose_name = 'research'
         verbose_name_plural = 'researches'
 
-        
     def __str__(self):
         return self.context

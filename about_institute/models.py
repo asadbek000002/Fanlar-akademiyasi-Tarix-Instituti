@@ -52,7 +52,7 @@ class OrganizationStructureImage(BaseModel):
 # MEMORIY-HUQUQIY HUJJATLAR
 class ArchitecturalLegalDocuments(BaseModel):
     title = models.CharField(max_length=250)
-    context = RichTextField()
+    context = RichTextField() # file fild/ga ozgartrish kerak
 
     class Meta:
         verbose_name = 'Architectural Legal Document'
@@ -63,7 +63,7 @@ class ArchitecturalLegalDocuments(BaseModel):
 
 
 # INSTITUT TARIXI
-class HistoryInstitute(BaseModel):
+class HistoryInstitute(BaseModel): # institut direktorlari uchun model tuzish
     title = models.CharField(max_length=250)
     image = models.ImageField(upload_to='images/about_institute/history_institute')
     contex = RichTextField()
@@ -96,7 +96,7 @@ class News(BaseModel):
         return self.title
 
 
-class NewsImage(BaseModel):
+class NewsImage(BaseModel): # News imagega text fiel ham qoshishimiz kerak 
     news_img = models.ForeignKey(News, on_delete=models.CASCADE,
                                  related_name='news_img')
     image = models.ImageField(blank=True, null=True)

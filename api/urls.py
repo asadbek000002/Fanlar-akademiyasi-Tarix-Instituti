@@ -1,39 +1,60 @@
-from django.urls import path
-# department 
+from django.urls import path, include
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
+
+# department
 from api.views_api.department import CategoryListView, DepartmentListView, EmployeeListView, \
-                        ResearchListView, WorksListView
+    ResearchListView, WorksListView
 # library
-
 from api.views_api.library import CategoryLibListView, SourceListView, ArchiveListView, \
-                        RequirementListView, EditorialListView,\
-                        AutoReferatListView, ElektronBookListView
-
+    RequirementListView, EditorialListView, \
+    AutoReferatListView, ElektronBookListView
 # aboutinstitut
 from api.views_api.aboutinstitut_view import LeadershipAPIView, OrganizationStructureAPIView, \
-                        ArchitecturalLegalDocumentsAPIView, HistoryInstituteAPIView, NewsAPIView
+    ArchitecturalLegalDocumentsAPIView, HistoryInstituteAPIView, NewsAPIView
 # international_contact
 from api.views_api.internetionalContact_view import PartnerOrganizationsAPIView, DoneInternationalProjectsAPIView, \
-                        NotDoneInternationalProjectsAPIView, InternationalResearchersAPIView
+    NotDoneInternationalProjectsAPIView, InternationalResearchersAPIView
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Snippets API",
+        default_version='v1',
+        description="Test description",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="contact@snippets.local"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
+    # swagger
+    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+
+    # richtextfield
+    path('djrichtextfield/', include('djrichtextfield.urls')),
 
     # department
-    path('category_dep/',CategoryListView.as_view()),
+    path('category_dep/', CategoryListView.as_view()),
     path('department/', DepartmentListView.as_view()),
     path('employee/', EmployeeListView.as_view()),
     path('research/', ResearchListView.as_view()),
     path('work/', WorksListView.as_view()),
 
-
     # library
-    path('category_lib/',CategoryLibListView.as_view()),
+    path('category_lib/', CategoryLibListView.as_view()),
     path('archive/', ArchiveListView.as_view()),
     path('requirements/', RequirementListView.as_view()),
     path('edorial/', EditorialListView.as_view()),
     path('elektron/', ElektronBookListView.as_view()),
     path('autoref/', AutoReferatListView.as_view()),
     path('source/', SourceListView.as_view()),
-    
+
     # leadership
     path('leadership/', LeadershipAPIView.as_view()),
     path('organization-structure/', OrganizationStructureAPIView.as_view()),
@@ -47,9 +68,4 @@ urlpatterns = [
     path('not-done-international-projects/', NotDoneInternationalProjectsAPIView.as_view()),
     path('international-researchers/', InternationalResearchersAPIView.as_view()),
 
-
 ]
-
-
-
-
