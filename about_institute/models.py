@@ -1,5 +1,6 @@
 from django.db import models
-from djrichtextfield.models import RichTextField
+# from djrichtextfield.models import RichTextField
+from ckeditor.fields import RichTextField
 
 
 class BaseModel(models.Model):

@@ -1,5 +1,6 @@
 from django.db import models
-from django.db import models
+# from djrichtextfield.models import RichTextField
+from ckeditor.fields import RichTextField
 
 
 class BaseModel(models.Model):
@@ -11,70 +12,57 @@ class BaseModel(models.Model):
         ordering = ('id',)
 
 
-class Category(models.Model):
-    title = models.CharField(max_length=255)
-
-    class Meta:
-        verbose_name = 'category_dep'
-        verbose_name_plural = 'categories_dep'
-
-    def __str__(self):
-        return self.title
-
-
 class Department(BaseModel):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_dep')
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='images/department/depart/')
-    context = models.TextField()
+    image = models.ImageField(upload_to='images/department/Info/')
+    context = RichTextField()
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'department'
-        verbose_name_plural = 'departments'
+        verbose_name = 'Department'
+        verbose_name_plural = 'Departments'
 
 
 class Employee(BaseModel):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_emp')
-    departmentemp = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='department_emp')
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='department_employee')
     fullname = models.CharField(max_length=255)
     position = models.CharField(max_length=255)
     degree = models.CharField(max_length=255)
     email = models.EmailField()
-    bio = models.TextField()
+    bio = RichTextField()
+    file = models.FileField()
     image = models.ImageField(upload_to='images/department/employee/')
 
     class Meta:
-        verbose_name = 'employee'
-        verbose_name_plural = 'employees'
+        verbose_name = 'Employee'
+        verbose_name_plural = 'Employees'
 
     def __str__(self):
         return self.fullname
 
 
-class Works(BaseModel):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_work')
+class Poems(BaseModel):
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='department_poems')
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee')
-    works = models.TextField()
+    works = RichTextField()
 
     class Meta:
-        verbose_name = 'work'
-        verbose_name_plural = 'works'
+        verbose_name = 'Poem'
+        verbose_name_plural = 'Poems'
 
     def __str__(self):
         return self.works
 
 
 class Research(BaseModel):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_res')
-    departmentres = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='department_res')
-    context = models.TextField()
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='department_research')
+    context = RichTextField()
 
     class Meta:
-        verbose_name = 'research'
-        verbose_name_plural = 'researches'
+        verbose_name = 'Research'
+        verbose_name_plural = 'Researches'
 
     def __str__(self):
         return self.context

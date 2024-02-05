@@ -1,13 +1,7 @@
 from modeltranslation.translator import TranslationOptions, register
-from .models import Category, Department, Employee, Research, Works
+from .models import Department, Employee, Research, Poems
 
 
-@register(Category)
-class CategoryTranlationOption(TranslationOptions):
-    fields = ('title',)
-
-
-@register(Department)
 class DepartmentTranlationOption(TranslationOptions):
     fields = ('title', 'context')
 
@@ -17,7 +11,7 @@ class EmployeeTranlationOption(TranslationOptions):
     fields = ('fullname', 'position', 'degree', 'bio')
 
 
-@register(Works)
+@register(Poems)
 class WorksTranlationOption(TranslationOptions):
     fields = ('works',)
 

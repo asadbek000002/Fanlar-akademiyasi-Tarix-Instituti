@@ -2,14 +2,18 @@ from django.urls import path, include
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
+from django.urls import path
 
-# department
-from api.views_api.department import CategoryListView, DepartmentListView, EmployeeListView, \
-    ResearchListView, WorksListView
+# department 
+from api.views_api.department import DepartmentListView, EmployeeListView, \
+    ResearchListView, PoemsListView, DepartmentDetailView
+
 # library
+
 from api.views_api.library import CategoryLibListView, SourceListView, ArchiveListView, \
     RequirementListView, EditorialListView, \
     AutoReferatListView, ElektronBookListView
+
 # aboutinstitut
 from api.views_api.aboutinstitut_view import LeadershipAPIView, OrganizationStructureAPIView, \
     ArchitecturalLegalDocumentsAPIView, HistoryInstituteAPIView, NewsAPIView
@@ -40,11 +44,11 @@ urlpatterns = [
     path('djrichtextfield/', include('djrichtextfield.urls')),
 
     # department
-    path('category_dep/', CategoryListView.as_view()),
     path('department/', DepartmentListView.as_view()),
-    path('employee/', EmployeeListView.as_view()),
-    path('research/', ResearchListView.as_view()),
-    path('work/', WorksListView.as_view()),
+    path('dep/<id>/', DepartmentDetailView.as_view()),
+    path('dep/<id>/employee/', EmployeeListView.as_view()),
+    path('dep/<id>/research/', ResearchListView.as_view()),
+    path('poems/', PoemsListView.as_view()),
 
     # library
     path('category_lib/', CategoryLibListView.as_view()),

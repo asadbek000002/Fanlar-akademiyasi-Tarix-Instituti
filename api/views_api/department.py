@@ -1,13 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from requests import Response
 from rest_framework import generics
-from department.models import Category, Department, Employee, Research, Works
-from department.serializers import Category_depSerializer, DepartmentSerializer, EmployeeSerializer, ResearchSerializer, \
-    WorksSerializer
-
-
-class CategoryListView(generics.ListAPIView):
-    queryset = Category.objects.all()
-    serializer_class = Category_depSerializer
+from department.models import  Department, Employee, Research, Poems
+from department.serializers import  DepartmentSerializer, EmployeeSerializer, ResearchSerializer, \
+    PoemsSerializer
 
 
 class DepartmentListView(generics.ListAPIView):
@@ -15,16 +11,30 @@ class DepartmentListView(generics.ListAPIView):
     serializer_class = DepartmentSerializer
 
 
+class DepartmentDetailView(generics.RetrieveAPIView):
+    lookup_field = "id"
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
+    
+
 class EmployeeListView(generics.ListAPIView):
-    queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+
+    def get_queryset(self):
+        department_id = self.kwargs['id']
+        return Employee.objects.filter(department_id=department_id)
+
+    
 
 
 class ResearchListView(generics.ListAPIView):
-    queryset = Research.objects.all()
     serializer_class = ResearchSerializer
 
+    def get_queryset(self):
+        department_id = self.kwargs['id']
+        return Research.objects.filter(department_id=department_id)
 
-class WorksListView(generics.ListAPIView):
-    queryset = Works.objects.all()
-    serializer_class = WorksSerializer
+
+class PoemsListView(generics.ListAPIView):
+    queryset = Poems.objects.all()
+    serializer_class = PoemsSerializer
